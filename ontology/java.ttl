@@ -1,0 +1,370 @@
+@prefix : <http://www.tandemproject.tum.de/ontologies/usecase/java/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ontojava: <http://www.tandemproject.tum.de/ontologies/usecase/java#> .
+@base <http://www.tandemproject.tum.de/ontologies/usecase/java/> .
+
+<http://www.tandemproject.tum.de/ontologies/usecase/java> rdf:type owl:Ontology ;
+                                                           rdfs:comment "The Java Ontology derived from the paper \"An Ontology-based Approach in Learning Programming Languages\""@en ;
+                                                           rdfs:label "A Java Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#hasMember
+ontojava:hasMember rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   owl:inverseOf ontojava:isMemberOf ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( ontojava:Class
+                                               ontojava:Interface
+                                               ontojava:Method
+                                               ontojava:Package
+                                             )
+                               ] ;
+                   rdfs:range ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#hasModifier
+ontojava:hasModifier rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf owl:topObjectProperty ;
+                     rdfs:domain ontojava:JavaElement ;
+                     rdfs:range ontojava:Modifier .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#isDefinedByKeyword
+ontojava:isDefinedByKeyword rdf:type owl:ObjectProperty ;
+                            rdfs:domain ontojava:JavaElement ;
+                            rdfs:range ontojava:Keyword .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#isInstanceOf
+ontojava:isInstanceOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:domain ontojava:Object ;
+                      rdfs:range ontojava:Class .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#isMemberOf
+ontojava:isMemberOf rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain ontojava:JavaElement ;
+                    rdfs:range [ rdf:type owl:Class ;
+                                 owl:unionOf ( ontojava:Class
+                                               ontojava:Interface
+                                               ontojava:Method
+                                               ontojava:Package
+                                             )
+                               ] .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#isSubClassOfJavaClass
+ontojava:isSubClassOfJavaClass rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf owl:topObjectProperty ;
+                               owl:inverseOf ontojava:isSuperClassOfJavaClass ;
+                               rdfs:domain ontojava:Class ;
+                               rdfs:range ontojava:Class .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#isSuperClassOfJavaClass
+ontojava:isSuperClassOfJavaClass rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf owl:topObjectProperty ;
+                                 rdfs:domain ontojava:Class ;
+                                 rdfs:range ontojava:Class .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#AbstractMethod
+ontojava:AbstractMethod rdf:type owl:Class ;
+                        rdfs:subClassOf ontojava:Method .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ArithmeticOperator
+ontojava:ArithmeticOperator rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#AssignmentOperator
+ontojava:AssignmentOperator rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#BitwiseOperator
+ontojava:BitwiseOperator rdf:type owl:Class ;
+                         rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#BranchingStatement
+ontojava:BranchingStatement rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:ControlFlowStatement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#CheckedException
+ontojava:CheckedException rdf:type owl:Class ;
+                          rdfs:subClassOf ontojava:Exception ;
+                          owl:disjointWith ontojava:UncheckedException .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Class
+ontojava:Class rdf:type owl:Class ;
+               rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ClassMethod
+ontojava:ClassMethod rdf:type owl:Class ;
+                     rdfs:subClassOf ontojava:Method .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ClassVariable
+ontojava:ClassVariable rdf:type owl:Class ;
+                       rdfs:subClassOf ontojava:Variable .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ConditionalOperator
+ontojava:ConditionalOperator rdf:type owl:Class ;
+                             rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Constructor
+ontojava:Constructor rdf:type owl:Class ;
+                     rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ControlFlowStatement
+ontojava:ControlFlowStatement rdf:type owl:Class ;
+                              rdfs:subClassOf ontojava:Statement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#DataType
+ontojava:DataType rdf:type owl:Class ;
+                  rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#DeclearationStatement
+ontojava:DeclearationStatement rdf:type owl:Class ;
+                               rdfs:subClassOf ontojava:Statement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Error
+ontojava:Error rdf:type owl:Class ;
+               rdfs:subClassOf ontojava:UncheckedException .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Exception
+ontojava:Exception rdf:type owl:Class ;
+                   rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ExceptionStatement
+ontojava:ExceptionStatement rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:ControlFlowStatement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ExpressionStatement
+ontojava:ExpressionStatement rdf:type owl:Class ;
+                             rdfs:subClassOf ontojava:Statement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#FinalMethod
+ontojava:FinalMethod rdf:type owl:Class ;
+                     rdfs:subClassOf ontojava:Method .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#InstanceMethod
+ontojava:InstanceMethod rdf:type owl:Class ;
+                        rdfs:subClassOf ontojava:Method .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#InstanceVariable
+ontojava:InstanceVariable rdf:type owl:Class ;
+                          rdfs:subClassOf ontojava:Variable .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Interface
+ontojava:Interface rdf:type owl:Class ;
+                   rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#JavaElement
+ontojava:JavaElement rdf:type owl:Class .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Keyword
+ontojava:Keyword rdf:type owl:Class .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#LiteralValue
+ontojava:LiteralValue rdf:type owl:Class .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#LocalVariable
+ontojava:LocalVariable rdf:type owl:Class ;
+                       rdfs:subClassOf ontojava:Variable .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#LoopStatement
+ontojava:LoopStatement rdf:type owl:Class ;
+                       rdfs:subClassOf ontojava:ControlFlowStatement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Method
+ontojava:Method rdf:type owl:Class ;
+                rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Modifier
+ontojava:Modifier rdf:type owl:Class ;
+                  rdfs:subClassOf ontojava:Keyword .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#NestedStatement
+ontojava:NestedStatement rdf:type owl:Class ;
+                         rdfs:subClassOf ontojava:ControlFlowStatement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Object
+ontojava:Object rdf:type owl:Class ;
+                rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Operator
+ontojava:Operator rdf:type owl:Class ;
+                  rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Package
+ontojava:Package rdf:type owl:Class ;
+                 rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Parameter
+ontojava:Parameter rdf:type owl:Class ;
+                   rdfs:subClassOf ontojava:Variable .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#PrimitiveDataType
+ontojava:PrimitiveDataType rdf:type owl:Class ;
+                           rdfs:subClassOf ontojava:DataType ;
+                           owl:disjointWith ontojava:ReferenceDataType .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ReferenceDataType
+ontojava:ReferenceDataType rdf:type owl:Class ;
+                           rdfs:subClassOf ontojava:DataType .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#RelationalOperator
+ontojava:RelationalOperator rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#RunTimeException
+ontojava:RunTimeException rdf:type owl:Class ;
+                          rdfs:subClassOf ontojava:UncheckedException .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#SelectionStatement
+ontojava:SelectionStatement rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:ControlFlowStatement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#ShiftOperator
+ontojava:ShiftOperator rdf:type owl:Class ;
+                       rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Statement
+ontojava:Statement rdf:type owl:Class ;
+                   rdfs:subClassOf ontojava:JavaElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#UnaryOperator
+ontojava:UnaryOperator rdf:type owl:Class ;
+                       rdfs:subClassOf ontojava:Operator .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#UncheckedException
+ontojava:UncheckedException rdf:type owl:Class ;
+                            rdfs:subClassOf ontojava:Exception .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/java#Variable
+ontojava:Variable rdf:type owl:Class ;
+                  rdfs:subClassOf ontojava:JavaElement .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:AbstractMethod
+                ontojava:ClassMethod
+                ontojava:FinalMethod
+                ontojava:InstanceMethod
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:ArithmeticOperator
+                ontojava:AssignmentOperator
+                ontojava:BitwiseOperator
+                ontojava:ConditionalOperator
+                ontojava:RelationalOperator
+                ontojava:ShiftOperator
+                ontojava:UnaryOperator
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:BranchingStatement
+                ontojava:ExceptionStatement
+                ontojava:LoopStatement
+                ontojava:NestedStatement
+                ontojava:SelectionStatement
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:Class
+                ontojava:Constructor
+                ontojava:DataType
+                ontojava:Exception
+                ontojava:Interface
+                ontojava:Method
+                ontojava:Object
+                ontojava:Operator
+                ontojava:Package
+                ontojava:Statement
+                ontojava:Variable
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:ClassVariable
+                ontojava:InstanceVariable
+                ontojava:LocalVariable
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:ControlFlowStatement
+                ontojava:DeclearationStatement
+                ontojava:ExpressionStatement
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

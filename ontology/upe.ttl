@@ -1,0 +1,387 @@
+@prefix : <http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix upe: <http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ontojava: <http://www.tandemproject.tum.de/ontologies/usecase/java#> .
+@base <http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise/> .
+
+<http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise> rdf:type owl:Ontology ;
+                                                                           owl:imports <http://www.tandemproject.tum.de/ontologies/usecase/java> ;
+                                                                           rdfs:label "An Ontology for the Programming Exercise Usecase"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasExerciseType
+upe:hasExerciseType rdf:type owl:ObjectProperty ;
+                    rdfs:domain upe:ProgrammingExercise ;
+                    rdfs:range upe:ExerciseType ;
+                    rdfs:label "has exercise type" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasProblemStatement
+upe:hasProblemStatement rdf:type owl:ObjectProperty ;
+                        rdfs:domain upe:ProgrammingExercise ;
+                        rdfs:range upe:ProblemStatement ;
+                        rdfs:label "has problem statement" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasProgrammingLanguage
+upe:hasProgrammingLanguage rdf:type owl:ObjectProperty ;
+                           rdfs:domain upe:ProgrammingExercise ;
+                           rdfs:range upe:ProgrammingLanguage ;
+                           rdfs:label "has programming language" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasSolutionFile
+upe:hasSolutionFile rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain upe:SolutionRepository ;
+                    rdfs:range upe:SolutionFile .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasSolutionRepository
+upe:hasSolutionRepository rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain upe:ProgrammingExercise ;
+                          rdfs:range upe:SolutionRepository .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasTemplateFile
+upe:hasTemplateFile rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf owl:topObjectProperty ;
+                    rdfs:domain upe:TemplateRepository ;
+                    rdfs:range upe:TemplateFile .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#hasTemplateRepository
+upe:hasTemplateRepository rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain upe:ProgrammingExercise ;
+                          rdfs:range upe:TemplateRepository .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#implements
+upe:implements rdf:type owl:ObjectProperty ;
+               rdfs:domain upe:SolutionFile ;
+               rdfs:range upe:ImplementedElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#lists
+upe:lists rdf:type owl:ObjectProperty ;
+          rdfs:domain upe:TemplateFile ;
+          rdfs:range upe:ListedElement .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#mentions
+upe:mentions rdf:type owl:ObjectProperty ;
+             rdfs:domain upe:ProblemStatement ;
+             rdfs:range upe:MentionedElement .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/identifier
+<http://schema.org/identifier> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ExerciseType
+upe:ExerciseType rdf:type owl:Class ;
+                 rdfs:label "Exercise Type" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement
+upe:ImplementedElement rdf:type owl:Class ;
+                       rdfs:label "Implemented Element"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ListedElement
+upe:ListedElement rdf:type owl:Class ;
+                  rdfs:label "Listed Element"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement
+upe:MentionedElement rdf:type owl:Class ;
+                     rdfs:label "Mentioned Element"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ProblemStatement
+upe:ProblemStatement rdf:type owl:Class ;
+                     rdfs:label "Problem Statement" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ProgrammingExercise
+upe:ProgrammingExercise rdf:type owl:Class ;
+                        rdfs:label "Programming Exercise" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ProgrammingLanguage
+upe:ProgrammingLanguage rdf:type owl:Class ;
+                        rdfs:label "Programming Language" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#SolutionFile
+upe:SolutionFile rdf:type owl:Class ;
+                 rdfs:label "Solution File"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#SolutionRepository
+upe:SolutionRepository rdf:type owl:Class ;
+                       rdfs:label "Solution Repository"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#TemplateFile
+upe:TemplateFile rdf:type owl:Class ;
+                 rdfs:label "Template File"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#TemplateRepository
+upe:TemplateRepository rdf:type owl:Class ;
+                       rdfs:label "Template Repository"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ExerciseH01E02
+upe:ExerciseH01E02 rdf:type owl:NamedIndividual ,
+                            upe:ProgrammingExercise ;
+                   upe:hasProblemStatement upe:PSH01E02 ;
+                   upe:hasSolutionRepository upe:SolutionRepositoryH01E02 ;
+                   upe:hasTemplateRepository upe:TemplateRepositoryH01E02 ;
+                   rdfs:label "Object Oriented Programming"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement01
+upe:ImplementedElement01 rdf:type owl:NamedIndividual ,
+                                  ontojava:Class ,
+                                  upe:ImplementedElement ;
+                         ontojava:hasMember upe:ImplementedElement02 ,
+                                            upe:ImplementedElement03 ,
+                                            upe:ImplementedElement04 ,
+                                            upe:ImplementedElement05 ,
+                                            upe:ImplementedElement06 ,
+                                            upe:ImplementedElement07 ,
+                                            upe:ImplementedElement08 ,
+                                            upe:ImplementedElement09 ;
+                         <http://schema.org/identifier> "Person" ;
+                         rdfs:label "public abstract class Person" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement02
+upe:ImplementedElement02 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceVariable ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "tumId" ;
+                         rdfs:label "private String tumId" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement03
+upe:ImplementedElement03 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceVariable ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "name" ;
+                         rdfs:label "private String name" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement04
+upe:ImplementedElement04 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceVariable ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "age" ;
+                         rdfs:label "private int age" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement05
+upe:ImplementedElement05 rdf:type owl:NamedIndividual ,
+                                  ontojava:Constructor ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "Person(String name, int age, String tumId)" ;
+                         rdfs:label "public Person(String name, int age, String tumId)" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement06
+upe:ImplementedElement06 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceMethod ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "getTumId()" ;
+                         rdfs:label "public String getTumId()" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement07
+upe:ImplementedElement07 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceMethod ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "getName()" ;
+                         rdfs:label "public String getName()" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement08
+upe:ImplementedElement08 rdf:type owl:NamedIndividual ,
+                                  ontojava:InstanceMethod ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "getAge()" ;
+                         rdfs:label "public int getAge()" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ImplementedElement09
+upe:ImplementedElement09 rdf:type owl:NamedIndividual ,
+                                  ontojava:FinalMethod ,
+                                  upe:ImplementedElement ;
+                         <http://schema.org/identifier> "say(String text)" ;
+                         rdfs:label "public final void say(String text)" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#ListedElement01
+upe:ListedElement01 rdf:type owl:NamedIndividual ,
+                             ontojava:Class ,
+                             upe:ListedElement ;
+                    <http://schema.org/identifier> "Person" ;
+                    rdfs:label "public class Person" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement01
+upe:MentionedElement01 rdf:type owl:NamedIndividual ,
+                                ontojava:Class ,
+                                upe:MentionedElement ;
+                       ontojava:hasMember upe:MentionedElement02 ,
+                                          upe:MentionedElement03 ,
+                                          upe:MentionedElement04 ,
+                                          upe:MentionedElement05 ,
+                                          upe:MentionedElement06 ;
+                       <http://schema.org/identifier> "Person" ;
+                       rdfs:label "test class Person" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement02
+upe:MentionedElement02 rdf:type owl:NamedIndividual ,
+                                ontojava:InstanceVariable ,
+                                upe:MentionedElement ;
+                       <http://schema.org/identifier> "name" ;
+                       rdfs:label "test attribute name" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement03
+upe:MentionedElement03 rdf:type owl:NamedIndividual ,
+                                ontojava:InstanceVariable ,
+                                upe:MentionedElement ;
+                       <http://schema.org/identifier> "age" ;
+                       rdfs:label "test attribute age" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement04
+upe:MentionedElement04 rdf:type owl:NamedIndividual ,
+                                ontojava:InstanceVariable ,
+                                upe:MentionedElement ;
+                       <http://schema.org/identifier> "tumId" ;
+                       rdfs:label "test attribute tumId" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement05
+upe:MentionedElement05 rdf:type owl:NamedIndividual ,
+                                ontojava:Constructor ,
+                                upe:MentionedElement ;
+                       <http://schema.org/identifier> "Person(String, int, String)" ;
+                       rdfs:label "test constructor Person(String, int, String)" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#MentionedElement06
+upe:MentionedElement06 rdf:type owl:NamedIndividual ,
+                                ontojava:FinalMethod ,
+                                upe:MentionedElement ;
+                       <http://schema.org/identifier> "say(String): void" ;
+                       rdfs:label "test method say(String): void" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#PSH01E02
+upe:PSH01E02 rdf:type owl:NamedIndividual ,
+                      upe:ProblemStatement ;
+             upe:mentions upe:MentionedElement01 ,
+                          upe:MentionedElement02 ,
+                          upe:MentionedElement03 ,
+                          upe:MentionedElement04 ,
+                          upe:MentionedElement05 ,
+                          upe:MentionedElement06 ;
+             rdfs:label "Problem Statement for Exercise H01E02"@en .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#SolutionH01E02File01
+upe:SolutionH01E02File01 rdf:type owl:NamedIndividual ,
+                                  upe:SolutionFile ;
+                         upe:implements upe:ImplementedElement01 ,
+                                        upe:ImplementedElement02 ,
+                                        upe:ImplementedElement03 ,
+                                        upe:ImplementedElement04 ,
+                                        upe:ImplementedElement05 ,
+                                        upe:ImplementedElement06 ,
+                                        upe:ImplementedElement07 ,
+                                        upe:ImplementedElement08 ,
+                                        upe:ImplementedElement09 ;
+                         rdfs:label "Solution File Person.java" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#SolutionH01E02File02
+upe:SolutionH01E02File02 rdf:type owl:NamedIndividual ,
+                                  upe:SolutionFile ;
+                         rdfs:label "Solution File Skill.java" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#SolutionRepositoryH01E02
+upe:SolutionRepositoryH01E02 rdf:type owl:NamedIndividual ,
+                                      upe:SolutionRepository ;
+                             upe:hasSolutionFile upe:SolutionH01E02File01 ,
+                                                 upe:SolutionH01E02File02 .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#TemplateH01E02File01
+upe:TemplateH01E02File01 rdf:type owl:NamedIndividual ,
+                                  upe:TemplateFile ;
+                         upe:lists upe:ListedElement01 ;
+                         rdfs:label "Template File Person.java" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#TemplateH01E02File02
+upe:TemplateH01E02File02 rdf:type owl:NamedIndividual ,
+                                  upe:TemplateFile ;
+                         rdfs:label "Template File Skill.java" .
+
+
+###  http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#TemplateRepositoryH01E02
+upe:TemplateRepositoryH01E02 rdf:type owl:NamedIndividual ,
+                                      upe:TemplateRepository ;
+                             upe:hasTemplateFile upe:TemplateH01E02File01 ,
+                                                 upe:TemplateH01E02File02 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( ontojava:JavaElement
+                ontojava:Keyword
+                ontojava:LiteralValue
+                upe:ExerciseType
+                upe:ProblemStatement
+                upe:ProgrammingExercise
+                upe:ProgrammingLanguage
+                upe:SolutionFile
+                upe:SolutionRepository
+                upe:TemplateFile
+                upe:TemplateRepository
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
