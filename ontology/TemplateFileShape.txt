@@ -1,0 +1,18 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix upe: <http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#> .
+@prefix ontojava: <http://www.tandemproject.tum.de/ontologies/usecase/java#> .
+@prefix schema: <http://schema.org/> .
+
+
+upe:TemplateFileShape 
+    a sh:NodeShape ;
+    sh:targetClass upe:TemplateFile ;
+    sh:property [
+        sh:path upe:lists ;
+        sh:class ontojava:Class ;  # Ensures the object is of class ontojava:Class
+        sh:node [
+            sh:property [
+                sh:path schema:identifier ;
+            ]
+        ]
+    ] .

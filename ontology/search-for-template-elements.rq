@@ -1,0 +1,14 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX upe: <http://www.tandemproject.tum.de/ontologies/usecase/programming-exercise#>
+PREFIX ontojava: <http://www.tandemproject.tum.de/ontologies/usecase/java#>
+select ?pe_label ?ps_label ?element_label where {
+    ?ProgrammingExercise a upe:ProgrammingExercise ;
+    	rdfs:label ?pe_label ;
+    	upe:hasProblemStatement ?ProblemStatement .
+    ?ProblemStatement a upe:ProblemStatement ;
+    	rdfs:label ?ps_label ;
+    	upe:mentions ?element .
+    ?element a upe:MentionedElement ;
+    	rdfs:label ?element_label ;
+    	a ontojava:Class . 
+} 
